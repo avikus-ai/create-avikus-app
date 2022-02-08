@@ -1,0 +1,47 @@
+{
+  "name": "create-avikus-app",
+  "version": "0.1.0",
+  "description": "Avikus's boilerplate for Next.js-powered React app",
+  "keywords": [
+    "avikus",
+    "react",
+    "next.js"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/avikus-ai/create-avikus-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/avikus-ai/create-avikus-app/issues"
+  },
+  "bin": {
+    "create-avikus-app": "./bin/index.js"
+  },
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "fs-extra": "^10.0.0",
+    "rimraf": "^3.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.8.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.1"
+  },
+  "eslintConfig": {
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "eslint:recommended", 
+      "plugin:prettier/recommended"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2018
+    },
+    "rules": {
+      "no-unused-vars": "off"
+    }
+  }
+}
