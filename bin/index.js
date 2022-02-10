@@ -108,6 +108,7 @@ function gitInit() {
   execSync('git commit -m "Initial commit from Create Avikus App"', {
     stdio: "ignore",
   });
+  execSync("git config commit.template .gitmessage", { stdio: "ignore" });
 }
 
 function success(projectName, projectPath) {
