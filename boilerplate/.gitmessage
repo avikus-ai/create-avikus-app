@@ -1,0 +1,31 @@
+# -------------- Commit Format --------------
+# <type>(<scope>): <short summary>
+# Remember blank line between title and body.
+# <body>
+# Remember blank line between body and footer.
+# <footer>
+
+
+# ------------------ Type -------------------
+# - feat: 완전히 새로운 코드나 새로운 기능을 도입하는 모든 변경 사항
+# - fix: 버그를 수정하는 변경 사항
+# - docs: 기존 문서 변경 또는 새 문서 생성(예: README, lib 또는 cli 사용을 위한 문서)
+# - style: 코드의 의미에 영향을 주지 않는 변경 사항(공백, 서식, 세미콜론 누락 등)
+# - refactor: 수정이나 기능이 아닌 모든 코드 관련 변경
+# - test: 테스트에 관한 모든 변경 사항(새 테스트 추가 또는 기존 테스트 변경)
+# - build: 소프트웨어 빌드, dependencies 변경 또는 새로운 dependencies 추가와 관련된 모든 변경 사항
+# - ci: 지속적인 통합 구성에 관한 모든 변경 사항(예: github 작업, ci 시스템)
+# - perf: 성능을 향상시키는 코드 변경
+# - chore: 위의 범주에 속하지 않는 저장소의 모든 변경 사항
+
+
+# ---------- Sample Commit Message ----------
+# fix($compile): couple of unit tests for IE9
+
+# Older IEs serialize html uppercased, but IE9 does not...
+# Would be better to expect case insensitive, unfortunately jasmine does
+# not allow to user regexps for throw expectations.
+
+# Closes #392
+# Breaks foo.bar api, foo.baz should be used instead
+
