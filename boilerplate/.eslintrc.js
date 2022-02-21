@@ -1,10 +1,6 @@
 module.exports = {
   root: true,
-  extends: [
-    "next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
-  ],
+  extends: ["next/core-web-vitals", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
   plugins: ["testing-library", "jest-dom", "cypress"],
   rules: {
     "@typescript-eslint/no-var-requires": "off",
@@ -23,4 +19,4 @@ module.exports = {
       extends: ["plugin:cypress/recommended"],
     },
   ],
-};
+}
