@@ -41,11 +41,8 @@ function init(argv) {
   process.chdir(projectPath);
 
   buildPackageJson(projectName, projectPath);
-
   install();
-
   gitInit();
-
   success(projectName, projectPath);
 }
 
@@ -101,6 +98,8 @@ function gitInit() {
   console.log();
 
   rimraf.sync("./.git");
+
+  fs.renameSync(".npmignore", ".gitignore");
 
   execSync("git init", { stdio: "ignore" });
   execSync("git checkout -b main", { stdio: "ignore" });
