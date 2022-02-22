@@ -97,7 +97,7 @@ function install() {
 }
 
 function gitInit() {
-  console.log("Initialized a git repository.");
+  console.log("Initialize a git repository.");
   console.log();
 
   rimraf.sync("./.git");
