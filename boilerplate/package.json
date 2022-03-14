@@ -2,35 +2,44 @@
   "name": "hello-world",
   "private": true,
   "scripts": {
+    "prepare": "husky install",
+    "babelrc": "node other/generate-babelrc.js",
+    "clean:babelrc": "rimraf .babelrc",
     "dev": "next dev",
+    "prebuild": "npm run clean:babelrc",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "test": "jest --watch",
+    "lint": "eslint --ignore-path .gitignore --fix .",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "test:e2e:dev": "start-server-and-test dev :3000 cy:open",
-    "test:e2e:run": "start-server-and-test start :3000 cy:run",
-    "analyze": "cross-env ANALYZE=true npm run build",
-    "prepare": "husky install"
+    "test:e2e:open": "cross-env NEXT_PUBLIC_ENABLE_API_MOCKING=true start-server-and-test dev :3000 cy:open",
+    "pretest:e2e:run": "npm run babelrc",
+    "test:e2e:run": "cross-env CODE_COVERAGE=true NEXT_PUBLIC_ENABLE_API_MOCKING=true start-server-and-test dev :3000 cy:run",
+    "analyze": "cross-env ANALYZE=true npm run build"
   },
   "dependencies": {
-    "next": "12.0.10",
+    "next": "12.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.9.12",
     "@next/bundle-analyzer": "^12.0.10",
     "@testing-library/cypress": "^8.0.2",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "@types/cypress-cucumber-preprocessor": "^4.0.1",
     "@types/jest": "^27.4.0",
     "@types/node": "17.0.16",
     "@types/react": "17.0.39",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "babel-plugin-istanbul": "^6.1.1",
     "cross-env": "^7.0.3",
     "cypress": "^9.4.1",
+    "cypress-cucumber-preprocessor": "^4.3.1",
     "eslint": "^8.8.0",
     "eslint-config-next": "12.0.10",
     "eslint-config-prettier": "^8.3.0",
@@ -41,8 +50,16 @@
     "husky": "^7.0.0",
     "jest": "^27.5.1",
     "lint-staged": "^12.3.3",
+    "msw": "^0.39.1",
     "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
     "start-server-and-test": "^1.14.0",
     "typescript": "4.5.5"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }

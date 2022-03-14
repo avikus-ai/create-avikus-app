@@ -1,0 +1,5 @@
+{
+  "include": ["src/**/*.{js,ts,tsx}"],
+  "exclude": ["src/mocks/**/*.{js,jsx,ts,tsx}", "src/pages/_app.{js,jsx,ts,tsx}"],
+  "excludeAfterRemap": true
+}

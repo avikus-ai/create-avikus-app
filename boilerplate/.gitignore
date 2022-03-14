@@ -7,6 +7,9 @@
 
 # testing
 /coverage
+/cypress/videos
+/cypress/screenshots
+.nyc_output
 
 # next.js
 /.next/
@@ -35,3 +38,6 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# babel
+.babelrc

@@ -1,5 +1,5 @@
 {
   "compilerOptions": {
-    "types": ["cypress", "@testing-library/cypress"]
+    "types": ["cypress", "@testing-library/cypress", "./support"]
   },
 }
