@@ -41,8 +41,8 @@ function init(argv) {
   process.chdir(projectPath);
 
   buildPackageJson(projectName, projectPath);
-  install();
   gitInit();
+  install();
   success(projectName, projectPath);
 }
 
