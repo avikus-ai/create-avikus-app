@@ -1,2 +1,3 @@
 .github
+.boilerplate/package-lock.json
 !boilerplate/*

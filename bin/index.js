@@ -43,6 +43,7 @@ function init(argv) {
   buildPackageJson(projectName, projectPath);
   gitInit();
   install();
+  gitCommit();
   success(projectName, projectPath);
 }
 
@@ -77,7 +78,6 @@ function buildPackageJson(projectName, projectPath) {
   const newPackageJson = {
     ...packageJson,
     name: projectName,
-    version: "0.1.0",
     private: true,
   };
 
@@ -103,6 +103,9 @@ function gitInit() {
 
   execSync("git init", { stdio: "ignore" });
   execSync("git checkout -b main", { stdio: "ignore" });
+}
+
+function gitCommit() {
   execSync("git add --all", { stdio: "ignore" });
   execSync('git commit -m "Initial commit from Create Avikus App"', {
     stdio: "ignore",
