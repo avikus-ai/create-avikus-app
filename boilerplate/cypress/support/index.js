@@ -5,3 +5,10 @@ if (Cypress.env("CODE_COVERAGE")) {
     import("@cypress/code-coverage/support")
   })()
 }
+
+afterEach(() =>
+  cy.window().then((window) => {
+    const { worker } = window.msw
+    worker.resetHandlers()
+  })
+)
