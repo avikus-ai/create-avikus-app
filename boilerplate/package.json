@@ -1,5 +1,6 @@
 {
   "name": "hello-world",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "prepare": "husky install",
@@ -14,13 +15,13 @@
     "test:watch": "jest --watch",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "test:e2e:open": "cross-env NEXT_PUBLIC_ENABLE_API_MOCKING=true start-server-and-test dev :3000 cy:open",
+    "test:e2e:open": "cross-env start-server-and-test dev :3000 cy:open",
     "pretest:e2e:run": "npm run babelrc",
-    "test:e2e:run": "cross-env CODE_COVERAGE=true NEXT_PUBLIC_ENABLE_API_MOCKING=true start-server-and-test dev :3000 cy:run",
+    "test:e2e:run": "cross-env CODE_COVERAGE=true start-server-and-test dev :3000 cy:run",
     "analyze": "cross-env ANALYZE=true npm run build"
   },
   "dependencies": {
-    "next": "12.1.0",
+    "next": "12.1.1",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
