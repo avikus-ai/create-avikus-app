@@ -5,7 +5,7 @@
 ## Quick Overview
 
 ```sh
-npx create-avikus-app my-app
+npx create-avikus-app@latest my-app
 cd my-app
 npm run dev
 ```
