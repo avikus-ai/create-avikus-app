@@ -9,16 +9,18 @@ const os = require("os");
 const execSync = require("child_process").execSync;
 const rimraf = require("rimraf");
 const packageJson = require("../package.json");
+const prompts = require("prompts");
 
-init(process.argv);
+(async () => await init(process.argv))();
 
-function init(argv) {
+async function init(argv) {
   if (argv.length < 3) {
     usage();
     process.exit(1);
   }
 
   const projectName = argv[2];
+  const { packageManager } = await askQuestions();
 
   if (fs.existsSync(projectName)) {
     console.log();
@@ -27,6 +29,11 @@ function init(argv) {
     );
     process.exit(1);
   }
+
+  if (!packageManager) {
+    process.exit(1);
+  }
+
   fs.mkdirSync(projectName);
 
   const boilerplatePath = path.join(__dirname, "../boilerplate");
@@ -42,7 +49,7 @@ function init(argv) {
 
   buildPackageJson(projectName, projectPath);
   gitInit();
-  install();
+  install(packageManager);
   gitCommit();
   success(projectName, projectPath);
 }
@@ -87,10 +94,13 @@ function buildPackageJson(projectName, projectPath) {
   );
 }
 
-function install() {
+function install(packageManager) {
   console.log("Installing packages. This might take a couple of minutes.");
   console.log();
-  execSync("npm install", { stdio: "ignore" });
+
+  const command = packageManager === "npm" ? "npm install" : "yarn";
+
+  execSync(command, { stdio: "ignore" });
 }
 
 function gitInit() {
@@ -123,4 +133,28 @@ function success(projectName, projectPath) {
   console.log(chalk.cyan("  cd"), projectName);
   console.log(`  ${chalk.cyan("npm run dev")}`);
   console.log();
+}
+
+async function askQuestions() {
+  const questions = [
+    {
+      type: "select",
+      name: "packageManager",
+      message: "📝 Which package manager do you want to use?",
+      choices: [
+        {
+          title: "Yarn",
+          value: "yarn",
+        },
+        {
+          title: "NPM",
+          value: "npm",
+        },
+      ],
+      initial: 1,
+    },
+  ];
+  const response = await prompts(questions);
+
+  return response;
 }
