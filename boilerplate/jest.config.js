@@ -4,13 +4,14 @@ const createJestConfig = nextJest({
   dir: "./",
 })
 
+/** @type {import('jest').Config} */
 const customJestConfig = {
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
   moduleDirectories: ["node_modules", "<rootDir>/"],
-  testEnvironment: "jest-environment-jsdom",
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
   },
+  testEnvironment: "jest-environment-jsdom",
   testMatch: ["<rootDir>/src/**/?(*.)+(spec|test).[jt]s?(x)"],
 }
 
