@@ -1,6 +1,6 @@
 {
   "name": "create-avikus-app",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Avikus's boilerplate for Next.js-powered React app",
   "keywords": [
     "avikus",
