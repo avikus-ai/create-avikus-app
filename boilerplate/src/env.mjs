@@ -7,7 +7,14 @@ export const env = createEnv({
    * isn't built with invalid env vars.
    */
   server: {
-    NODE_ENV: z.enum(["development", "test", "production"]),
+    PORT: z
+      .string()
+      .optional()
+      .transform((value) => parseInt(value || 3000)),
+    CI: z
+      .enum(["true", "false"])
+      .optional()
+      .transform((value) => value === "true"),
     ANALYZE: z
       .enum(["true", "false"])
       .optional()
@@ -26,8 +33,9 @@ export const env = createEnv({
    * middlewares) or client-side so we need to destruct manually.
    */
   runtimeEnv: {
+    PORT: process.env.PORT,
+    CI: process.env.CI,
     ANALYZE: process.env.ANALYZE,
-    NODE_ENV: process.env.NODE_ENV,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**
