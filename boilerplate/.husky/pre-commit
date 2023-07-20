@@ -2,5 +2,6 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 npx --no-install lint-staged
+npx playwright test
 npm run type-test
 npm run test
