@@ -8,7 +8,7 @@ module.exports = {
   overrides: [
     {
       files: ["src/**/*.{js,jsx,ts,tsx}"],
-      extends: ["plugin:testing-library/react", "plugin:jest-dom/recommended"],
+      extends: ["plugin:playwright/recommended", "plugin:jest-dom/recommended"],
     },
   ],
 }
