@@ -4,11 +4,20 @@ module.exports = {
   rules: {
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/no-explicit-any": "warn",
   },
   overrides: [
     {
-      files: ["src/**/*.{js,jsx,ts,tsx}"],
-      extends: ["plugin:testing-library/react", "plugin:jest-dom/recommended"],
+      files: ["src/**/?(*.)+(spec|test).[jt]s?(x)"],
+      extends: ["plugin:testing-library/react"],
+    },
+    {
+      files: ["src/**/?(*.)+(spec|test).[jt]s?(x)"],
+      extends: ["plugin:jest-dom/recommended"],
+    },
+    {
+      files: ["e2e/**/?(*.)+(spec|test).[jt]s?(x)"],
+      extends: ["plugin:playwright/recommended"],
     },
   ],
 }
