@@ -6,7 +6,7 @@ module.exports = {
   singleQuote: false,
   tabWidth: 2,
   trailingComma: "es5",
-  importOrder: ["<THIRD_PARTY_MODULES>", "^[~.]+/"],
+  importOrder: ["<THIRD_PARTY_MODULES>", "^[@.]+/"],
   importOrderSeparation: true,
   importOrderParserPlugins: ["typescript", "jsx", "decorators-legacy"],
 }
