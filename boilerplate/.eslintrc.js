@@ -8,11 +8,15 @@ module.exports = {
   },
   overrides: [
     {
-      files: ["src/**/*.{js,jsx,ts,tsx}"],
-      extends: ["plugin:testing-library/react", "plugin:jest-dom/recommended"],
+      files: ["src/**/?(*.)+(spec|test).[jt]s?(x)"],
+      extends: ["plugin:testing-library/react"],
     },
     {
-      files: ["e2e/**/*.{js,jsx,ts,tsx}"],
+      files: ["src/**/?(*.)+(spec|test).[jt]s?(x)"],
+      extends: ["plugin:jest-dom/recommended"],
+    },
+    {
+      files: ["e2e/**/?(*.)+(spec|test).[jt]s?(x)"],
       extends: ["plugin:playwright/recommended"],
     },
   ],
